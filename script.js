@@ -1,6 +1,5 @@
-var dayDisplayEl = $("#currentDay")
-var currentTime = ("");
-
+var dayDisplayEl = $("#currentDay");
+workHours = [ '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00' ]
 
 // get the current time when the page loads
 //as you loop through the time blocks in the calendar, compare that time with the current time.
@@ -33,13 +32,15 @@ $('.container').children().each((i, e) => {
 })
 
   //when the button is clicked on
-$('saveBtn').on("click", saveText())
+$('saveBtn').on("click", saveText)
 
    //create a function to save the text to local storage
 function saveText(){
     var hourlyTask = $('decription').value; 
     //save the text in text area to local storage
-    localStorage.setItem("hour", hourlyTask);
+    for (i = 0; i <= workHours; i++);
+    localStorage.setItem( workHours[i], hourlyTask)
+
     //display the value
     localStorage.getItem("hour")
   }

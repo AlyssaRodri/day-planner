@@ -12,7 +12,8 @@ function displayDay() {
     // utilize moment.js to display time
     var currentDay = moment().format("MMMM Do YYYY");
     dayDisplayEl.text(currentDay)
-    //I also used this function to set the variable of current time
+
+    
 }
 
 
@@ -35,16 +36,20 @@ $('.container').children().each((i, e) => {
 $('saveBtn').on("click", saveText)
 
    //create a function to save the text to local storage
-function saveText(){
+function saveText(event){
+      //I also used this function to preventDefault
+      event.preventDefault()
     var hourlyTask = $('decription').value; 
     //save the text in text area to local storage
     for (i = 0; i <= workHours; i++);
-    localStorage.setItem( workHours[i], hourlyTask)
-
-    //display the value
-    localStorage.getItem("hour")
+    localStorage.setItem( workHours[i], hourlyTask);
+  displayText();
   }
 // it will need to be saved to Local Storage. When I refresh the page, the saved text needs to stay where it is.
+function displayText(){
+  localStorage.getItem(hourlyTask)
+}
+
 
 //call the display time function
 displayDay();
